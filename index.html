@@ -23,6 +23,7 @@
       text-align: center;
       color: #fff;
       max-width: 90%;
+      position: relative;
     }
     h1 {
       font-size: 26px;
@@ -48,6 +49,12 @@
     .btn:hover {
       background-color: #c2185b;
     }
+    .observacao {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #ccc;
+      font-style: italic;
+    }
     audio {
       display: none;
     }
@@ -58,6 +65,10 @@
     <h1>Assista à cerimônia do casamento<br><strong>Iasmim & Lucas</strong></h1>
     <div class="countdown" id="contador">Carregando contador...</div>
     <a class="btn" href="https://instagram.com/musica_persosp" target="_blank">Assistir no Instagram</a>
+    <div class="observacao">
+      <p>⚠️ O link de transmissão é exclusivo.<br>
+      Apenas convidados autorizados terão acesso à cerimônia ao vivo.</p>
+    </div>
   </div>
 
   <!-- Música instrumental de fundo -->
@@ -68,7 +79,7 @@
 
   <!-- Script para contador regressivo -->
   <script>
-    // Definindo a data da cerimônia: 16 de novembro de 2025 às 14:30
+    // Data e hora da cerimônia: 16 de novembro de 2025 às 14:30
     const dataCerimonia = new Date(2025, 10, 16, 14, 30, 0);
 
     function atualizaContador() {
