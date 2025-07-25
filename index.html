@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Casamento Iasmim & Lucas</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('mivaassessoria.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Arial', sans-serif;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.65);
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      color: #fff;
+      max-width: 90%;
+    }
+    h1 {
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+    .countdown {
+      font-size: 20px;
+      margin-bottom: 25px;
+      font-weight: bold;
+    }
+    .btn {
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+    }
+    .btn:hover {
+      background-color: #c2185b;
+    }
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Assista à cerimônia do casamento<br><strong>Iasmim & Lucas</strong></h1>
+    <div class="countdown" id="contador">Carregando contador...</div>
+    <a class="btn" href="https://instagram.com/musica_persosp" target="_blank">Assistir no Instagram</a>
+  </div>
+
+  <!-- Música instrumental de fundo -->
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <!-- Script para contador regressivo -->
+  <script>
+    // Definindo a data da cerimônia: 16 de novembro de 2025 às 14:30
+    const dataCerimonia = new Date(2025, 10, 16, 14, 30, 0);
+
+    function atualizaContador() {
+      const agora = new Date().getTime();
+      const distancia = dataCerimonia - agora;
+
+      if (distancia < 0) {
+        document.getElementById("contador").innerHTML = "A cerimônia começou!";
+        return;
+      }
+
+      const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+      document.getElementById("contador").innerHTML =
+        `Começa em ${dias}d ${horas}h ${minutos}min ${segundos}s`;
+    }
+
+    setInterval(atualizaContador, 1000);
+    atualizaContador();
+  </script>
+</body>
+</html>
