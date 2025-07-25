@@ -23,7 +23,6 @@
       text-align: center;
       color: #fff;
       max-width: 90%;
-      position: relative;
     }
     h1 {
       font-size: 26px;
@@ -45,6 +44,7 @@
       text-decoration: none;
       transition: background-color 0.3s ease;
       display: inline-block;
+      margin: 10px;
     }
     .btn:hover {
       background-color: #c2185b;
@@ -64,14 +64,20 @@
   <div class="container">
     <h1>Assista à cerimônia do casamento<br><strong>Iasmim & Lucas</strong></h1>
     <div class="countdown" id="contador">Carregando contador...</div>
-    <a class="btn" href="https://instagram.com/musica_persosp" target="_blank">Assistir no Instagram</a>
+
+    <!-- Botão para abrir via navegador -->
+    <a class="btn" href="https://instagram.com/mivaassessoriasp" target="_blank">Abrir no navegador</a>
+
+    <!-- Botão para abrir diretamente o app -->
+    <a class="btn" href="instagram://user?username=mivaassessoriasp">Abrir no app Instagram</a>
+
     <div class="observacao">
       <p>⚠️ O link de transmissão é exclusivo.<br>
       Apenas convidados autorizados terão acesso à cerimônia ao vivo.</p>
     </div>
   </div>
 
-  <!-- Música instrumental de fundo -->
+  <!-- Música de fundo -->
   <audio autoplay loop>
     <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
     Seu navegador não suporta áudio.
@@ -79,7 +85,7 @@
 
   <!-- Script para contador regressivo -->
   <script>
-    // Data e hora da cerimônia: 16 de novembro de 2025 às 14:30
+    // Data da cerimônia: 16/11/2025 às 14:30
     const dataCerimonia = new Date(2025, 10, 16, 14, 30, 0);
 
     function atualizaContador() {
