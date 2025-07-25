@@ -10,11 +10,41 @@
       padding: 0;
       background: url('mivaassessoria.jpg') no-repeat center center fixed;
       background-size: cover;
+      font-family: 'Arial', sans-serif;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      font-family: 'Arial', sans-serif;
+    }
+
+    /* Animação para borda girando */
+    @keyframes spinBorder {
+      0% { border-color: white; }
+      25% { border-color: #e91e63; }
+      50% { border-color: white; }
+      75% { border-color: #e91e63; }
+      100% { border-color: white; }
+    }
+
+    /* Animação para flutuar do topo ao rodapé */
+    @keyframes floatFullHeight {
+      0% { top: 15px; }
+      50% { top: calc(100vh - 135px); }
+      100% { top: 15px; }
+    }
+
+    .logo {
+      position: fixed;
+      left: 15px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 6px rgba(0,0,0,0.5);
+      z-index: 1000;
+      border: 3px solid white;
+      animation: floatFullHeight 6s ease-in-out infinite, spinBorder 3s linear infinite;
+      box-sizing: border-box;
     }
     .container {
       background: rgba(0, 0, 0, 0.65);
@@ -23,6 +53,8 @@
       text-align: center;
       color: #fff;
       max-width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
     }
     h1 {
       font-size: 26px;
@@ -61,14 +93,13 @@
   </style>
 </head>
 <body>
+  <img src="logo-miva.jpg" alt="Logo Miva Assessoria" class="logo" id="logoMiva" />
+
   <div class="container">
     <h1>Assista à cerimônia do casamento<br><strong>Iasmim & Lucas</strong></h1>
     <div class="countdown" id="contador">Carregando contador...</div>
 
-    <!-- Botão para abrir via navegador -->
     <a class="btn" href="https://instagram.com/mivaassessoriasp" target="_blank">Abrir no navegador</a>
-
-    <!-- Botão para abrir diretamente o app -->
     <a class="btn" href="instagram://user?username=mivaassessoriasp">Abrir no app Instagram</a>
 
     <div class="observacao">
@@ -77,16 +108,14 @@
     </div>
   </div>
 
-  <!-- Música de fundo -->
   <audio autoplay loop>
     <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
     Seu navegador não suporta áudio.
   </audio>
 
-  <!-- Script para contador regressivo -->
   <script>
-    // Data da cerimônia: 16/11/2025 às 14:30
     const dataCerimonia = new Date(2025, 10, 16, 14, 30, 0);
+    const logo = document.getElementById('logoMiva');
 
     function atualizaContador() {
       const agora = new Date().getTime();
@@ -94,6 +123,11 @@
 
       if (distancia < 0) {
         document.getElementById("contador").innerHTML = "A cerimônia começou!";
+
+        // Para a animação do logo
+        logo.style.animation = 'none';
+        logo.style.borderColor = '#e91e63'; // borda fixa rosa
+
         return;
       }
 
@@ -105,7 +139,6 @@
       document.getElementById("contador").innerHTML =
         `Começa em ${dias}d ${horas}h ${minutos}min ${segundos}s`;
     }
-
     setInterval(atualizaContador, 1000);
     atualizaContador();
   </script>
